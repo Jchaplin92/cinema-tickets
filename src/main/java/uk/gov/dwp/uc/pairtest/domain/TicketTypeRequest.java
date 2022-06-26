@@ -3,10 +3,10 @@ package uk.gov.dwp.uc.pairtest.domain;
 /**
  * Immutable Object
  */
-public class TicketTypeRequest {
+public class TicketTypeRequest implements CostProvider {
 
-    private int noOfTickets;
-    private Type type;
+    private final int noOfTickets;
+    private final Type type;
 
     public TicketTypeRequest(Type type, int noOfTickets) {
         this.type = type;
@@ -23,6 +23,19 @@ public class TicketTypeRequest {
 
     public enum Type {
         ADULT, CHILD , INFANT
+    }
+
+    public int totalToPay() {
+        switch (type) {
+            case ADULT:
+                return 20 * noOfTickets;
+            case CHILD:
+                return 10 * noOfTickets;
+            case INFANT:
+                return 0;
+            default:
+                throw new IllegalArgumentException("A new Type of ticket holder is unaccounted for");
+        }
     }
 
 }

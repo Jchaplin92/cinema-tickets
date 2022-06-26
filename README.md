@@ -2,7 +2,6 @@
 
 - author: Joe Chaplin
 - languages/technologies: Java11/Maven
-- source: exercise and original source code from the Department of Work and Pensions, emailed 23rd June 2022.
 - created: 26th June 2022
 
 ## Purpose
